@@ -22,7 +22,13 @@ mongoose
   .then(() => console.log("Mongo Connected"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello world from the universe"));
+// app.get("/", (req, res) => res.send("Hello world from the universe"));
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
 
 // Use Routes
 app.use("/api/users", users);
